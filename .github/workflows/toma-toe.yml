@@ -1,2 +1,22 @@
 name: Toma Tow Workflow
 on: [push]
+jobs:
+  publish-bicep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile infrastructure
+        uses: Azure/cli@1.0.4
+        with:
+          azcliversion: 2.23.0
+          inlineScript: az bicep build -f ./deployment/main.bicep
+      - name: Compile infrastructure
+        uses: Azure/cli@1.0.4
+        with:
+          azcliversion: 2.23.0
+          inlineScript: az bicep build -f ./deployment/trafficmgr.bicep
+      - name: Publish artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: bicep-templates
+          path: deployment/*.json
