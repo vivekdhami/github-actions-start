@@ -24,7 +24,7 @@ jobs:
   
   infrastructure-incremental-test:
     needs: publish-bicep
-    uses: vivekdhami/github-actions-start/.github/workflows/deployment.yml@version
+    uses: vivekdhami/github-actions-start/.github/workflows/deployment.yml@32ddf0daa8d1ee8d6b46ea586ffe304462936d5c
     with:
       environment: test
     secrets:
