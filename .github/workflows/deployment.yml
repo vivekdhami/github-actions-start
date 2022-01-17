@@ -27,7 +27,7 @@ jobs:
         with:
           azcliversion: 2.23.0
           inlineScript: az deployment sub create --name europe --location westeurope
-                        --template-file ./infrastructure/main.json –parameters
+                        --template-file ./infrastructure/main.json –-parameters
                         ./infrastructure/${{ inputs.environment }}.parameters.json 
                         --parameters locationAbbriviation=we
       - name: Deploy United States
@@ -35,7 +35,7 @@ jobs:
         with:
           azcliversion: 2.23.0
           inlineScript: az deployment sub create --name america --location westus
-                        --template-file ./infrastructure/main.json –parameters
+                        --template-file ./infrastructure/main.json –-parameters
                         ./infrastructure/${{ inputs.environment }}.parameters.json 
                         --parameters locationAbbriviation=us
       - name: Deploy Asia
